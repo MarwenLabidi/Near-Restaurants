@@ -22,7 +22,11 @@ function MultipleMarkers() {
                         <Marker
                                 key={index}
                                 position={coordinata}
-                                icon={DefaultIcon}></Marker>
+                                icon={DefaultIcon}>
+                                <Popup>
+                                        A pretty CSS3 popup. <br /> Easily{index}
+                                </Popup>
+                                </Marker>
                 );
         });
 }
