@@ -1,4 +1,11 @@
-.leaflet-container{
-	height: 80vh;
-	width: 100%;
+.leaflet-container {
+        height: 80vh;
+        width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+        background-color: red;
+	& button{
+		background-color: blue;
+	}
 }

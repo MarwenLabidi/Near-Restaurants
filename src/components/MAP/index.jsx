@@ -24,9 +24,10 @@ function MultipleMarkers() {
                                 position={coordinata}
                                 icon={DefaultIcon}>
                                 <Popup>
-                                        A pretty CSS3 popup. <br /> Easily{index}
+                                        <button>show details {index}</button>
+                                        <button>direction</button>
                                 </Popup>
-                                </Marker>
+                        </Marker>
                 );
         });
 }
@@ -50,4 +51,5 @@ const MAP = () => {
 
 export default MAP;
 
-
+//TODO? test css nestiong with post css
+// TODO? create or look for direction
