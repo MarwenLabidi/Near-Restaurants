@@ -7,14 +7,18 @@ specifiers:
   '@types/react': ^18.0.22
   '@types/react-dom': ^18.0.7
   '@vitejs/plugin-react': ^2.2.0
+  leaflet: ^1.9.2
   playwright: ^1.27.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-leaflet: ^4.1.0
   vite: ^3.2.0
 
 dependencies:
+  leaflet: 1.9.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-leaflet: 4.1.0_ck4vhzg7aizutrwygiu3aueify
 
 devDependencies:
   '@cucumber/cucumber': 8.7.0
@@ -515,6 +519,18 @@ packages:
       '@types/node': 18.11.9
       playwright-core: 1.27.1
     dev: true
+
+  /@react-leaflet/core/2.1.0_ck4vhzg7aizutrwygiu3aueify:
+    resolution: {integrity: sha512-Qk7Pfu8BSarKGqILj4x7bCSZ1pjuAPZ+qmRwH5S7mDS91VSbVVsJSrW4qA+GPrro8t69gFYVMWb1Zc4yFmPiVg==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      leaflet: 1.9.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@teppeis/multimaps/2.0.0:
     resolution: {integrity: sha512-TL1adzq1HdxUf9WYduLcQ/DNGYiz71U31QRgbnr0Ef1cPyOUOsBojxHVWpFeOSUucB6Lrs0LxFRA14ntgtkc9w==}
@@ -1198,6 +1214,10 @@ packages:
       seed-random: 2.2.0
     dev: true
 
+  /leaflet/1.9.2:
+    resolution: {integrity: sha512-Kc77HQvWO+y9y2oIs3dn5h5sy2kr3j41ewdqCMEUA4N89lgfUUfOBy7wnnHEstDpefiGFObq12FdopGRMx4J7g==}
+    dev: false
+
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: true
@@ -1356,6 +1376,19 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-leaflet/4.1.0_ck4vhzg7aizutrwygiu3aueify:
+    resolution: {integrity: sha512-i+V9pX5lywJ48O2+K3USeeTdYLIhxnLMweH+YLd/UPqVIj3uKzE3Q29bzt83PBtViyZmxDlulzC6uoR3JLiE9A==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@react-leaflet/core': 2.1.0_ck4vhzg7aizutrwygiu3aueify
+      leaflet: 1.9.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-refresh/0.14.0:
