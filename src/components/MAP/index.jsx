@@ -4,10 +4,13 @@ import "leaflet/dist/leaflet.css";
 import "./index.css";
 import L from "leaflet";
 import icon from "/images/icon-location.svg";
+import POPUP_CARD from "../POPUP_CARD";
 
 let DefaultIcon = L.icon({
         iconUrl: icon,
         iconSize: [46, 56],
+        // iconAnchor: [23, 56],
+        // popupAnchor: [0, -56],
 });
 
 let arrCoordinates = [
@@ -24,8 +27,7 @@ function MultipleMarkers() {
                                 position={coordinata}
                                 icon={DefaultIcon}>
                                 <Popup>
-                                        <button>show details {index}</button>
-                                        <button>direction</button>
+                                        <POPUP_CARD />
                                 </Popup>
                         </Marker>
                 );
@@ -50,6 +52,3 @@ const MAP = () => {
 };
 
 export default MAP;
-
-//TODO? test css nestiong with post css
-// TODO? create or look for direction

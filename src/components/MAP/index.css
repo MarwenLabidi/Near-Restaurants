@@ -3,9 +3,6 @@
         width: 100%;
 }
 
-.leaflet-popup-content-wrapper {
+/* .leaflet-popup-content-wrapper {
         background-color: red;
-	& button{
-		background-color: blue;
-	}
-}
+} */

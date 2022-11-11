@@ -1,0 +1,13 @@
+.popupCardSection {
+        display: flex;
+}
+
+.restaurantName {
+        font-family: var(--ff_Rubik);
+}
+.showDetailsButton {
+        height: 30px;
+}
+.directionButton {
+        height: 30px;
+}
