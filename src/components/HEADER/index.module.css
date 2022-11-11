@@ -1,3 +1,8 @@
 .title{
-	color:green;
+	color:white;
+}
+.header{
+	height:35vh;
+	background:url("/images/pattern-bg.png") no-repeat ;
+	background-size:cover;
 }

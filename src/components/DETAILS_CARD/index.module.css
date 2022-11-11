@@ -1,6 +1,11 @@
 .card {
-        background-color: red;
+        background-color: gray;
 	display:flex;
 	position: absolute;
-	/* z-index: 9999999999; */
+	z-index: 9999999999;
+	width:70vw;
+	justify-content:space-around;
+	left: 50%; 
+	transform: translate(-50%, -50%);
+	top: 35%;  
 }

@@ -1,10 +1,10 @@
 import React from "react";
 //import css module file
-import { title } from "./index.module.css";
+import { title,header } from "./index.module.css";
 
 const HEADER = () => {
         return (
-                <header>
+                <header className={header}>
                         <h1 className={title}>NEAR RESTAURANTS</h1>
                         <div>
                                 <input
