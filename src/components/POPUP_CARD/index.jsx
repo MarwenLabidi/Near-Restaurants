@@ -11,9 +11,9 @@ const POPUP_CARD = () => {
                 <>
                         <section className={popupCardSection}>
                                 <div>
-                                        <h3 className={restaurantName}>
+                                        <h2 className={restaurantName}>
                                                 restaurant Name
-                                        </h3>
+                                        </h2>
                                         <button className={directionButton}>
                                                 direction
                                         </button>

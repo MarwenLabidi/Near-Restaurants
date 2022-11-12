@@ -1,8 +1,52 @@
-.title{
-	color:white;
+.header {
+        height: 35vh;
+        background: url("/images/pattern-bg.png") no-repeat;
+        background-size: cover;
+        text-align: center;
 }
-.header{
-	height:35vh;
-	background:url("/images/pattern-bg.png") no-repeat ;
-	background-size:cover;
+.title {
+        color: white;
+        padding: 5vh 0;
+}
+
+.inputSection {
+        /* background-color:red; */
+        height: 50px;
+	position:relative;
+	display: flex;
+	justify-content: center;
+}
+
+.inputTextField {
+        height: 100%;
+        width: 35%;
+        min-width: 270px;
+        border-radius: 5px 0 0 5px;
+	padding-left: 20px;
+	font-family:inherit;
+}
+/*TODO? when inputTextField focus card is hidden */
+
+
+.buttonSubmit {
+        background-color: black;
+        height: 100%;
+        width: 50px;
+        margin-left: -5px;
+	/* position:absolute; */
+	/* right:0; */
+	border-radius:0 5px 5px 0;
+	outline: none;
+	border: none;
+	transitions: all 0.3s ease;
+
+}
+.buttonSubmit:active {
+	outline: none;
+	border: none;
+	scale: 0.9 ;
+}
+.buttonSubmit:focus,.buttonSubmit:hover {
+	border:1px solid white;
+	cursor: pointer;
 }

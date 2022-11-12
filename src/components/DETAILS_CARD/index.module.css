@@ -1,11 +1,80 @@
 .card {
-        background-color: gray;
-	display:flex;
-	position: absolute;
-	z-index: 9999999999;
-	width:70vw;
-	justify-content:space-around;
-	left: 50%; 
-	transform: translate(-50%, -50%);
-	top: 35%;  
+        background-color: white;
+        display: flex;
+        position: absolute;
+        z-index: 9999999999;
+        width: 70vw;
+        justify-content: space-around;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 35%;
+        border-radius: 10px;
+        border: 1px solid black;
+        /* height: 15vh; */
+        padding: 10px;
+}
+.cardSectionOne,
+.cardSectionTwo {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+}
+
+.cardName,
+.cardLocation,
+.cardCuisine,
+.cardRating {
+        /* background-color: red; */
+        width: 250px;
+        text-align: center;
+        min-width: 90px;
+}
+
+.cardNameTitle,
+.cardLocationTitle,
+.cardCuisineTitle,
+.cardRatingTitle {
+        color: var(--Dark_Gray);
+}
+
+.cardNameContent,
+.cardLocationContent,
+.cardCuisineContent,
+.cardRatingContent {
+        padding-left: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+        .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* height:auto; */
+                /* height: 30vh; */
+                top: 40%;
+                width: 60vw;
+                /* text-align: center; */
+                /* margin: 0 auto; */
+                font-size: 15px;
+        }
+        .cardSectionOne,
+        .cardSectionTwo {
+                gap: 20px;
+        }
+
+        .cardNameContent,
+        .cardLocationContent,
+        .cardCuisineContent,
+        .cardRatingContent {
+                padding-left: 0;
+        }
+        .cardNameTitle,
+        .cardLocationTitle,
+        .cardCuisineTitle,
+        .cardRatingTitle {
+                margin: 8px;
+        }
 }

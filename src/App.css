@@ -10,7 +10,6 @@
 }
 
 body {
-        //NOTE? same styles for the input and the button
         font-family: var(--ff_Rubik);
         font-weight: var(--fw_regular);
         font-size: 18px;

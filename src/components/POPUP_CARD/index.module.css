@@ -1,13 +1,20 @@
 .popupCardSection {
         display: flex;
+        padding: 10px;
 }
 
 .restaurantName {
         font-family: var(--ff_Rubik);
+        padding-bottom:10px;
 }
 .showDetailsButton {
         height: 30px;
 }
 .directionButton {
         height: 30px;
+}
+
+.showDetailsButton:hover,
+.directionButton:hover {
+        cursor: pointer;
 }

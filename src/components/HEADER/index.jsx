@@ -1,17 +1,17 @@
 import React from "react";
 //import css module file
-import { title,header } from "./index.module.css";
+import { title,header,inputSection,inputTextField,buttonSubmit } from "./index.module.css";
 
 const HEADER = () => {
         return (
                 <header className={header}>
-                        <h1 className={title}>NEAR RESTAURANTS</h1>
-                        <div>
-                                <input
+                        <h2 className={title}>NEAR RESTAURANTS</h2>
+                        <div className={inputSection}>
+                                <input className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
                                 />
-                                <button>
+                                <button className={buttonSubmit}>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'
                                                 width='11'

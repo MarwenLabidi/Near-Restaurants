@@ -1,26 +1,57 @@
 import React from "react";
-import { card } from "./index.module.css";
-
+import {
+        card,
+        cardSectionOne,
+        cardSectionTwo,
+        cardName,
+        cardNameTitle,
+        cardNameContent,
+        cardLocation,
+        cardLocationTitle,
+        cardLocationContent,
+        cardCuisine,
+        cardCuisineTitle,
+        cardCuisineContent,
+        cardRating,
+        cardRatingTitle,
+        cardRatingContent,
+} from "./index.module.css";
 
 const DETAILS_CARD = () => {
         return (
                 <section className={card}>
-                        <div>
-                                <h5>Name</h5>
-                                <h4>cha</h4>
-                        </div>
-                        <div>
-                                <h5>Location</h5>
-                                <h4>krib</h4>
-                        </div>
-                        <div>
-                                <h5>cuisine</h5>
-                                <h4>Tunis</h4>
-                        </div>
-                        <div>
-                                <h5>Rating</h5>
-                                <h4>five start</h4>
-                        </div>
+                        <section className={cardSectionOne}>
+                                <div className={cardName}>
+                                        <h5 className={cardNameTitle}>Name</h5>
+                                        <h3 className={cardNameContent}>lablebi</h3>
+                                </div>
+                                <div className={cardLocation}>
+                                        <h5 className={cardLocationTitle}>
+                                                Location
+                                        </h5>
+                                        <h3 className={cardLocationContent}>
+                                                krib
+                                        </h3>
+                                </div>
+                        </section>
+                        <section className={cardSectionTwo}>
+                                <div className={cardCuisine}>
+                                        <h5 className={cardCuisineTitle}>
+                                                cuisine
+                                        </h5>
+                                        <h3 className={cardCuisineContent}>
+                                                Tunis
+                                        </h3>
+                                </div>
+                                <div className={cardRating}>
+                                        <h5 className={cardRatingTitle}>
+                                                Rating
+                                        </h5>
+                                        <h3 className={cardRatingContent}>
+                                                five 
+                                        </h3>
+                                </div>
+                        </section>
                 </section>
         );
 };
