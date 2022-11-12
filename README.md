@@ -11,9 +11,8 @@
 - Vite , React ,CSS module,React Query,Axios,Zustand
 - Git , Github
 - BDD & TDD (cucumber && playwright)
--
 
 ## API and library :
 
--react leaflet,Mapbox
--RapidAPI(Restaurants API)
+- react leaflet,Mapbox
+- RapidAPI(Restaurants API)
