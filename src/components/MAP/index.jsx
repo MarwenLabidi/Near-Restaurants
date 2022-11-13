@@ -38,6 +38,8 @@ function MapClick() {
         const map = useMapEvent("click", (e) => {
                 console.log(e.latlng);
                 map.flyTo(e.latlng, map.getZoom());
+                console.log(map.getCenter());
+
 
         });
         return null;
