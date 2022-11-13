@@ -39,6 +39,8 @@ function MapClick() {
                 console.log(e.latlng);
                 map.flyTo(e.latlng, map.getZoom());
                 console.log(map.getCenter());
+                //get the bounds
+                console.log(map.getBounds());
 
 
         });
@@ -49,6 +51,8 @@ function MapDrag() {
         const map = useMapEvent("dragend", (e) => {
                 // console.log(e);
                 console.log(map.getCenter());
+                console.log(map.getBounds());
+
         });
         return null;
 }
