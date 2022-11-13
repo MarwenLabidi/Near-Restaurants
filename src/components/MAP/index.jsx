@@ -41,6 +41,7 @@ function MapClick() {
                 console.log(map.getCenter());
                 //get the bounds
                 console.log(map.getBounds());
+                // TODO? set map center to the coordinate state and set bounds to the bound state
 
 
         });
@@ -52,6 +53,7 @@ function MapDrag() {
                 // console.log(e);
                 console.log(map.getCenter());
                 console.log(map.getBounds());
+                // TODO? set map center to the coordinate state and set bounds to the bound state
 
         });
         return null;
