@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Popup, Marker,useMapEvent } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./index.css";
 import L from "leaflet";
@@ -33,6 +33,24 @@ function MultipleMarkers() {
                 );
         });
 }
+//handel click event
+function MapClick() {
+        const map = useMapEvent("click", (e) => {
+                console.log(e.latlng);
+                map.flyTo(e.latlng, map.getZoom());
+
+        });
+        return null;
+}
+// handel change map drag event
+function MapDrag() {
+        const map = useMapEvent("dragend", (e) => {
+                // console.log(e);
+                console.log(map.getCenter());
+        });
+        return null;
+}
+
 
 const MAP = () => {
         return (
@@ -40,6 +58,8 @@ const MAP = () => {
                         center={[36.8065, 10.1815]}
                         zoom={13}
                         scrollWheelZoom={false}>
+                        <MapClick />
+                        <MapDrag />
                         <TileLayer
                                 attribution='&copy; <a href="https://github.com/MarwenLabidi">by MarwenLabidi</a> '
                                 url={`https://api.mapbox.com/styles/v1/abidimarwen/cla5hdzif000j14t37tq0lcc2/tiles/256/{z}/{x}/{y}@2x?access_token=${
