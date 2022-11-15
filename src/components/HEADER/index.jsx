@@ -1,13 +1,21 @@
 import React from "react";
+import AUTOCOMPLETE from "../AUTOCOMPLETE";
 //import css module file
-import { title,header,inputSection,inputTextField,buttonSubmit } from "./index.module.css";
+import {
+        title,
+        header,
+        inputSection,
+        inputTextField,
+        buttonSubmit,
+} from "./index.module.css";
 
 const HEADER = () => {
         return (
                 <header className={header}>
                         <h2 className={title}>NEAR RESTAURANTS</h2>
                         <div className={inputSection}>
-                                <input className={inputTextField}
+                                <input
+                                        className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
                                 />
@@ -25,6 +33,7 @@ const HEADER = () => {
                                         </svg>
                                 </button>
                         </div>
+                        <AUTOCOMPLETE/>
                 </header>
         );
 };

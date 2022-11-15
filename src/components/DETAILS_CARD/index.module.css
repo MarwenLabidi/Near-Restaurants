@@ -2,7 +2,7 @@
         background-color: white;
         display: flex;
         position: absolute;
-        z-index: 9999999999;
+        z-index: 999;
         width: 70vw;
         justify-content: space-around;
         left: 50%;
@@ -35,6 +35,7 @@
 .cardCuisineTitle,
 .cardRatingTitle {
         color: var(--Dark_Gray);
+        margin: 10px;
 }
 
 .cardNameContent,
