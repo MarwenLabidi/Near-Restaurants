@@ -1,5 +1,5 @@
 import React from "react";
-import usePlacesData from "../../Api/usePlacesData";
+import fetchPlaces from "../../Api/usePlacesData";
 import AUTOCOMPLETE from "../AUTOCOMPLETE";
 //import css module file
 import {
@@ -19,12 +19,15 @@ const HEADER = () => {
                                         className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
-                                        onKeyDown={(e) => {
-                                                console.log(e.target.value);
+                                        onKeyDown={async(e) => {
+                                                // console.log(e.target.value);
+                                                let value = e.target.value;
+                                                if (e.key === "Enter") {
+                                                        //TODO? delete and backsapce keys
+                                                }
                                                 //FIXME? use formik in this input
-                                                //FIXME? can only called in e body of component
-                                                // const {data,error,isLoading}=usePlacesData()
-                                                // console.log('data: ', data);
+                                                const data=await fetchPlaces(value)
+                                                console.log('data: ', data);
                                         }}
                                 />
                                 <button className={buttonSubmit}>
