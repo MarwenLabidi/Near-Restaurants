@@ -19,7 +19,7 @@ const HEADER = () => {
                                         className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
-                                        onKeyDown={async(e) => {
+                                        onKeyUp={async(e) => {
                                                 // console.log(e.target.value);
                                                 let value = e.target.value;
                                                 if (e.key === "Enter") {
