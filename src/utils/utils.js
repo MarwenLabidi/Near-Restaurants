@@ -3,9 +3,10 @@ export function debounce(cb, delay = 1000) {
 
         return (...args) => {
                 clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                        cb(...args);
+                timeout = setTimeout(async() => {
+                       let data =await cb(...args)
+                       console.log('data: ', data);
+                       //TODO? add this data to the place state in zustand
                 }, delay);
         };
 }
-//FIXME? make it work

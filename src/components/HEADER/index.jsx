@@ -1,5 +1,6 @@
 import React from "react";
 import fetchPlaces from "../../Api/usePlacesData";
+import { debounce } from "../../utils/utils";
 import AUTOCOMPLETE from "../AUTOCOMPLETE";
 //import css module file
 import {
@@ -10,12 +11,15 @@ import {
         buttonSubmit,
 } from "./index.module.css";
 
+const handelDebounce=debounce(fetchPlaces)
+
 const HEADER = () => {
         return (
                 <header className={header}>
                         <h2 className={title}>NEAR RESTAURANTS</h2>
                         <div className={inputSection}>
                                 <input
+                                        //FIXME? use formik in this input
                                         className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
@@ -25,9 +29,7 @@ const HEADER = () => {
                                                 if (e.key === "Enter") {
                                                         //TODO? delete and backsapce keys
                                                 }
-                                                //FIXME? use formik in this input
-                                                const data=await fetchPlaces(value)
-                                                console.log('data: ', data);
+                                                handelDebounce(value)
                                         }}
                                 />
                                 <button className={buttonSubmit}>
