@@ -1,7 +1,8 @@
-import React from "react";
+import { useCallback } from "react";
 import fetchPlaces from "../../Api/usePlacesData";
 import { debounce } from "../../utils/utils";
 import AUTOCOMPLETE from "../AUTOCOMPLETE";
+import { useForm } from "react-hook-form";
 //import css module file
 import {
         title,
@@ -11,25 +12,23 @@ import {
         buttonSubmit,
 } from "./index.module.css";
 
-const handelDebounce=debounce(fetchPlaces)
-
 const HEADER = () => {
+        const handelDebounce = useCallback(debounce(fetchPlaces));
+        const { register } = useForm();
+
         return (
                 <header className={header}>
                         <h2 className={title}>NEAR RESTAURANTS</h2>
                         <div className={inputSection}>
                                 <input
-                                        //FIXME? use formik in this input
+                                        {...register("search")}
                                         className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
-                                        onKeyUp={async(e) => {
-                                                // console.log(e.target.value);
-                                                let value = e.target.value;
-                                                if (e.key === "Enter") {
-                                                        //TODO? delete and backsapce keys
-                                                }
-                                                handelDebounce(value)
+                                        onKeyUp={async (e) => {
+                                                let value =
+                                                        e.target.value.toLowerCase();
+                                                handelDebounce(value);
                                         }}
                                 />
                                 <button className={buttonSubmit}>
@@ -46,7 +45,7 @@ const HEADER = () => {
                                         </svg>
                                 </button>
                         </div>
-                        <AUTOCOMPLETE/>
+                        <AUTOCOMPLETE />
                 </header>
         );
 };

@@ -11,6 +11,7 @@ specifiers:
   playwright: ^1.27.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-hook-form: ^7.39.4
   react-leaflet: ^4.1.0
   vite: ^3.2.0
   zustand: ^4.1.4
@@ -19,6 +20,7 @@ dependencies:
   leaflet: 1.9.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.39.4_react@18.2.0
   react-leaflet: 4.1.0_ck4vhzg7aizutrwygiu3aueify
   zustand: 4.1.4_react@18.2.0
 
@@ -1378,6 +1380,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.39.4_react@18.2.0:
+    resolution: {integrity: sha512-B0e78r9kR9L2M4A4AXGbHoA/vyv34sB/n8QWJAw33TFz8f5t9helBbYAeqnbvcQf1EYzJxKX/bGQQh9K+evCyQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-leaflet/4.1.0_ck4vhzg7aizutrwygiu3aueify:

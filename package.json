@@ -12,6 +12,7 @@
                 "leaflet": "^1.9.2",
                 "react": "^18.2.0",
                 "react-dom": "^18.2.0",
+                "react-hook-form": "^7.39.4",
                 "react-leaflet": "^4.1.0",
                 "zustand": "^4.1.4"
         },

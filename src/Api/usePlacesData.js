@@ -32,6 +32,5 @@ const fetchPlaces = async (query) => {
 
 };
 export default fetchPlaces;
-//FIXME? use debounce  function here
 
 
