@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback,useEffect } from "react";
 import fetchPlaces from "../../Api/usePlacesData";
 import { debounce } from "../../utils/utils";
 import AUTOCOMPLETE from "../AUTOCOMPLETE";
@@ -11,10 +11,18 @@ import {
         inputTextField,
         buttonSubmit,
 } from "./index.module.css";
+import usePlaceStore from "../../store/placeStore";
 
 const HEADER = () => {
-        const handelDebounce = useCallback(debounce(fetchPlaces));
         const { register } = useForm();
+        const {addPlace} = usePlaceStore((state) => ({
+                addPlace: state.addPlace,
+        }));
+        const handelDebounce = useCallback(debounce(fetchPlaces,addPlace));
+        useEffect(() => {
+                addPlace([]);
+        }, []);
+        
 
         return (
                 <header className={header}>
@@ -25,7 +33,7 @@ const HEADER = () => {
                                         className={inputTextField}
                                         type='text'
                                         placeholder='Search by City or Town'
-                                        onKeyUp={async (e) => {
+                                        onInput={async (e) => {
                                                 let value =
                                                         e.target.value.toLowerCase();
                                                 handelDebounce(value);

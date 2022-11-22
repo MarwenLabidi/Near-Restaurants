@@ -3,7 +3,7 @@ import DETAILS_CARD from "./components/DETAILS_CARD";
 import HEADER from "./components/HEADER";
 import MAP from "./components/MAP";
 import "./App.css";
-import useShowdetails from "./store/store";
+import useShowdetails from "./store/ShowCardDetailStore";
 
 function App() {
         const { showdetails, toggleShowdetails } = useShowdetails((state) => ({

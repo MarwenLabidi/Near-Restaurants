@@ -13,11 +13,11 @@ const showdetailsStore = (set) => ({
 });
 
 const useShowdetails = create(
-        devtools(
+        // devtools(
                 persist(showdetailsStore, {
                         name: "showdetails",
                 })
-        )
+        // )
 );
 
 export default useShowdetails;
