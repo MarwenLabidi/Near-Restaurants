@@ -17,12 +17,14 @@ const placeStore = (set) => ({
 });
 
 const usePlaceStore = create(
-        devtools(
+        // devtools(
                 persist(placeStore, {
                         name: "placeStore",
                 })
-        )       
+        // )       
          // devtools is a middleware
 );
 
 export default usePlaceStore;
+
+//FIXME? delete the persist from all the stores look on internet

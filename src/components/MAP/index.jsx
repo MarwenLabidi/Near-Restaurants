@@ -1,10 +1,17 @@
 import React from "react";
-import { MapContainer, TileLayer, Popup, Marker,useMapEvent } from "react-leaflet";
+import {
+        MapContainer,
+        TileLayer,
+        Popup,
+        Marker,
+        useMapEvent,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./index.css";
 import L from "leaflet";
 import icon from "/images/icon-location.svg";
 import POPUP_CARD from "../POPUP_CARD";
+import useCoordinateStore from "../../store/coordinateStore";
 
 let DefaultIcon = L.icon({
         iconUrl: icon,
@@ -42,8 +49,6 @@ function MapClick() {
                 //get the bounds
                 console.log(map.getBounds());
                 // TODO? set map center to the coordinate state and set bounds to the bound state
-
-
         });
         return null;
 }
@@ -54,13 +59,18 @@ function MapDrag() {
                 console.log(map.getCenter());
                 console.log(map.getBounds());
                 // TODO? set map center to the coordinate state and set bounds to the bound state
-
         });
         return null;
 }
 
-
 const MAP = () => {
+        const { coordinate, bounds, setCoordinate, setBonds } =
+                useCoordinateStore((state) => ({
+                        coordinate: state.coordinate,
+                        bounds: state.bounds,
+                        setCoordinate: state.setCoordinate,
+                        setBonds: state.setBonds,
+                }));
         return (
                 <MapContainer
                         center={[36.8065, 10.1815]}

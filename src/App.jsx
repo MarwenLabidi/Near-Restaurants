@@ -23,6 +23,6 @@ function App() {
 }
 
 export default App;
-//-[] create zustand store : showdetails :fale, coordinate :{lg,wg}, bounds : {ne: null, sw: null} place : []
+//-[] create zustand store : showdetails :fale,  place : []
 //-[] create the direction feature
 //-[] add rating starts from material ui
