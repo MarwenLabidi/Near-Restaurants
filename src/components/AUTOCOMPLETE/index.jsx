@@ -1,23 +1,31 @@
 import React from "react";
 import usePlaceStore from "../../store/placeStore";
+import { pickPlace } from "../../utils/utils";
 import { autoComplete, suggestionPlace } from "./index.module.css";
 
-const AUTOCOMPLETE = () => {
-        const { places } = usePlaceStore((state) => ({
+const AUTOCOMPLETE = ({ placeInTheInputRef }) => {
+        const { places, addPlace } = usePlaceStore((state) => ({
                 places: state.places,
+                addPlace: state.addPlace,
         }));
+
         return (
                 <div className={autoComplete} role='list'>
                         {places.map((place, index) =>
                                 //stop if its more than 5
                                 index > 4 ? null : (
                                         <p
-                                                data-places={place}
+                                                data-places={JSON.stringify(
+                                                        place
+                                                )}
                                                 className={suggestionPlace}
                                                 key={place.lat}
                                                 onClick={(e) => {
-                                                        console.log(e);
-                                                        // TODO?
+                                                        pickPlace(
+                                                                e,
+                                                                placeInTheInputRef,
+                                                                addPlace
+                                                        );
                                                 }}>
                                                 {place.display_name}
                                         </p>
@@ -28,4 +36,3 @@ const AUTOCOMPLETE = () => {
 };
 
 export default AUTOCOMPLETE;
-//TODO? add click event to the p and close the autocomplete and add the name to the input and set the data in the coordinate store
