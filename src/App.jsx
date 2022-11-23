@@ -24,6 +24,8 @@ function App() {
                 getTheCurrentLocation(setCoordinate);
         }, []);
         //TODO? useEffect to get the restaurant whatevent the cooridnate and boundsstate change
+        //TODO? use react query to fetch the restaurant data : use costom hook and look at dev tool use select and on succes an on error
+        //TODO? delete the useEffect and use the useQuery hook
         useEffect(() => {
                 console.log(coordinate);
         }, [coordinate]);
@@ -38,5 +40,4 @@ function App() {
 }
 
 export default App;
-
 

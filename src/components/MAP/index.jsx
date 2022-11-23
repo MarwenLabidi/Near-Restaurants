@@ -73,7 +73,7 @@ const MAP = () => {
                 }));
         return (
                 <MapContainer
-                        center={[36.8065, 10.1815]}
+                        center={[36.8065, 10.1815]} //FIXME? use the current location center
                         zoom={13}
                         scrollWheelZoom={false}>
                         <MapClick />
