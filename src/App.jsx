@@ -23,6 +23,5 @@ function App() {
 }
 
 export default App;
-//-[] create zustand store : showdetails :fale,  place : []
-//-[] create the direction feature
-//-[] add rating starts from material ui
+
+

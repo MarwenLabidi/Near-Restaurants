@@ -14,9 +14,9 @@ const showdetailsStore = (set) => ({
 
 const useShowdetails = create(
         // devtools(
-                persist(showdetailsStore, {
+                showdetailsStore, {
                         name: "showdetails",
-                })
+                }
         // )
 );
 

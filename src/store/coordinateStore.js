@@ -22,9 +22,9 @@ const coordiateStore = (set) => ({
 
 const useCoordinateStore = create(
         devtools(
-                persist(coordiateStore, {
+                coordiateStore, {
                         name: "coordinate",
-                })
+                }
         )
 );
 

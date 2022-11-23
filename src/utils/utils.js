@@ -20,7 +20,6 @@ export const pickPlace = (e,placeInTheInputRef,addPlace) => {
         //set the the value of the target inside the input
         e.target.parentElement.parentElement.children[1].firstChild.value =
                 place.display_name;
-        //FIXME?create a state to hide and show the list of places or look forit i already exist
-        // e.target.parentElement.style.display = "none";
+        //hide the autocomplete
         addPlace([]);
 };
