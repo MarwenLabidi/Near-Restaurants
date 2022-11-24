@@ -44,7 +44,7 @@ function MultipleMarkers() {
 //handel click event
 function MapClick({ setCoordinate, setBonds }) {
         const map = useMapEvent("click", (e) => {
-                map.flyTo(e.latlng, map.getZoom());
+                // map.flyTo(e.latlng, map.getZoom());
                 let center=map.getCenter();
                 setCoordinate(center.lat, center.lng );
                 let bounds=map.getBounds();
@@ -63,11 +63,14 @@ function MapDrag({setCoordinate,setBonds}) {
         return null;
 }
 //change the center of the map
-function ChangeView({ center, zoom }) {
+function ChangeView({ center, zoom ,setBonds}) {
         const map = useMap();
         map.setView(center, zoom);
-        //FIXME? USE EFFECT HERE AND SETTIME OUT
-        //TODO? set the bounds of the map from here inside useeffect
+        // set the bounds of the map from here inside useeffect
+        useEffect(() => {
+                let bounds=map.getBounds();
+                setBonds(bounds._northEast,bounds._southWest);
+        }, [center ]);
         return null;
 }
 
@@ -80,7 +83,7 @@ const MAP = () => {
                         setBonds: state.setBonds,
                 }));
         const [zoom, setZoom] = useState(13);
-        const [center, setCenter] = useState([36.8065, 10.1815]);//FIXME? deletethis state and use coordinate state
+        const [center, setCenter] = useState([36.8065, 10.1815]);
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
         }, [coordinate]);
@@ -90,7 +93,7 @@ const MAP = () => {
                         center={center}
                         zoom={zoom}
                         scrollWheelZoom={false}>
-                        <ChangeView center={center} zoom={zoom} />
+                        <ChangeView center={center} zoom={zoom} setBonds={setBonds}/>
 
                         <MapClick setCoordinate={setCoordinate} setBonds={setBonds} />
                         <MapDrag  setCoordinate={setCoordinate} setBonds={setBonds}/>

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,useInsertionEffect } from "react";
 import DETAILS_CARD from "./components/DETAILS_CARD";
 import HEADER from "./components/HEADER";
 import MAP from "./components/MAP";
@@ -20,7 +20,7 @@ function App() {
                 setBonds: state.setBonds,
         }));
         // set the current location to the state
-        useEffect(() => {//FIXME? use hook run before useEffect
+        useInsertionEffect(() => {
                 getTheCurrentLocation(setCoordinate,setBonds);
         }, []);
         //TODO? useEffect to get the restaurant whatevent the cooridnate and boundsstate change
