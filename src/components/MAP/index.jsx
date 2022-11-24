@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import {
         MapContainer,
         TileLayer,
@@ -12,6 +12,7 @@ import L from "leaflet";
 import icon from "/images/icon-location.svg";
 import POPUP_CARD from "../POPUP_CARD";
 import useCoordinateStore from "../../store/coordinateStore";
+import { useMap } from "react-leaflet";
 
 let DefaultIcon = L.icon({
         iconUrl: icon,
@@ -62,6 +63,12 @@ function MapDrag() {
         });
         return null;
 }
+//change the center of the map
+function ChangeView({ center, zoom }) {
+        const map = useMap();
+        map.setView(center, zoom);
+        return null;
+}
 
 const MAP = () => {
         const { coordinate, bounds, setCoordinate, setBonds } =
@@ -71,11 +78,21 @@ const MAP = () => {
                         setCoordinate: state.setCoordinate,
                         setBonds: state.setBonds,
                 }));
+        const [zoom, setZoom] = useState(13);
+        const [center, setCenter] = useState([36.8065, 10.1815]);
+        useEffect(() => {
+                setCenter([coordinate.lg, coordinate.wg]);
+                // map.flyTo(center, map.getZoom());
+                // change the map center FIXME?
+        }, [coordinate]);
+
         return (
                 <MapContainer
-                        center={[36.8065, 10.1815]} //FIXME? use the current location center
-                        zoom={13}
+                        center={center}
+                        zoom={zoom}
                         scrollWheelZoom={false}>
+                        <ChangeView center={center} zoom={zoom} />
+
                         <MapClick />
                         <MapDrag />
                         <TileLayer
