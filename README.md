@@ -15,4 +15,4 @@
 ## API and library :
 
 - react leaflet,Mapbox
-- RapidAPI(Restaurants API)
+- RapidAPI(Travel Advisor)
