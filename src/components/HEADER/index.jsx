@@ -60,7 +60,6 @@ const HEADER = () => {
                                                         placeInTheInputRef
                                                                 .current.lon
                                                 );
-                                                //FIXME? set the bounds too
                                         }}>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'

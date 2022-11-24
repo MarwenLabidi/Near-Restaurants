@@ -20,7 +20,7 @@ function App() {
                 setBonds: state.setBonds,
         }));
         // set the current location to the state
-        useEffect(() => {
+        useEffect(() => {//FIXME? use hook run before useEffect
                 getTheCurrentLocation(setCoordinate,setBonds);
         }, []);
         //TODO? useEffect to get the restaurant whatevent the cooridnate and boundsstate change

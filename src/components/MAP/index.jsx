@@ -66,6 +66,8 @@ function MapDrag({setCoordinate,setBonds}) {
 function ChangeView({ center, zoom }) {
         const map = useMap();
         map.setView(center, zoom);
+        //FIXME? USE EFFECT HERE AND SETTIME OUT
+        //TODO? set the bounds of the map from here inside useeffect
         return null;
 }
 
@@ -78,7 +80,7 @@ const MAP = () => {
                         setBonds: state.setBonds,
                 }));
         const [zoom, setZoom] = useState(13);
-        const [center, setCenter] = useState([36.8065, 10.1815]);
+        const [center, setCenter] = useState([36.8065, 10.1815]);//FIXME? deletethis state and use coordinate state
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
         }, [coordinate]);
