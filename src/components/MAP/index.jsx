@@ -42,24 +42,23 @@ function MultipleMarkers() {
         });
 }
 //handel click event
-function MapClick() {
+function MapClick({ setCoordinate, setBonds }) {
         const map = useMapEvent("click", (e) => {
-                console.log(e.latlng);
                 map.flyTo(e.latlng, map.getZoom());
-                console.log(map.getCenter());
-                //get the bounds
-                console.log(map.getBounds());
-                // TODO? set map center to the coordinate state and set bounds to the bound state
+                let center=map.getCenter();
+                setCoordinate(center.lat, center.lng );
+                let bounds=map.getBounds();
+                setBonds(bounds._northEast,bounds._southWest);
         });
         return null;
 }
 // handel change map drag event
-function MapDrag() {
+function MapDrag({setCoordinate,setBonds}) {
         const map = useMapEvent("dragend", (e) => {
-                // console.log(e);
-                console.log(map.getCenter());
-                console.log(map.getBounds());
-                // TODO? set map center to the coordinate state and set bounds to the bound state
+                let center=map.getCenter();
+                setCoordinate(center.lat, center.lng );
+                let bounds=map.getBounds();
+                setBonds(bounds._northEast,bounds._southWest);
         });
         return null;
 }
@@ -91,8 +90,8 @@ const MAP = () => {
                         scrollWheelZoom={false}>
                         <ChangeView center={center} zoom={zoom} />
 
-                        <MapClick />
-                        <MapDrag />
+                        <MapClick setCoordinate={setCoordinate} setBonds={setBonds} />
+                        <MapDrag  setCoordinate={setCoordinate} setBonds={setBonds}/>
                         <TileLayer
                                 attribution='&copy; <a href="https://github.com/MarwenLabidi">by MarwenLabidi</a> '
                                 url={`https://api.mapbox.com/styles/v1/abidimarwen/cla5hdzif000j14t37tq0lcc2/tiles/256/{z}/{x}/{y}@2x?access_token=${

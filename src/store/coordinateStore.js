@@ -15,7 +15,7 @@ const coordiateStore = (set) => ({
 
         setBonds: (ne, sw) => {
                 set((state) => ({
-                        bounds: { ne, sw },
+                        bounds: [ ne, sw ],
                 }));
         },
 });

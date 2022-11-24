@@ -24,7 +24,8 @@ export const pickPlace = (e, placeInTheInputRef, addPlace) => {
         addPlace([]);
 };
 
-export const getTheCurrentLocation = async (setCoordinate) => {
+export const getTheCurrentLocation = async (setCoordinate,setBonds) => {
+        //FIXME? get the bounds current location and set it the state
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                         showPosition,
