@@ -82,8 +82,6 @@ const MAP = () => {
         const [center, setCenter] = useState([36.8065, 10.1815]);
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
-                // map.flyTo(center, map.getZoom());
-                // change the map center FIXME?
         }, [coordinate]);
 
         return (
