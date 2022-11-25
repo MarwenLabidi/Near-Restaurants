@@ -20,7 +20,7 @@ let DefaultIcon = L.icon({
         // iconAnchor: [23, 56],
         // popupAnchor: [0, -56],
 });
-
+//FIXME? get the restaurant ln and wg from the react query cache
 let arrCoordinates = [
         [36.8065, 10.1815],
         [36.8185, 10.1815],

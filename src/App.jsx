@@ -27,17 +27,15 @@ function App() {
         }, []);
         
         //-> get the restaurant data
-        //TODO? use the bounds to get the data
         const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
-                        11.847676,
-                        12.838442,
-                        109.095887,
-                        109.149359,
+                        bounds[1]?.lat,
+                        bounds[0]?.lat,
+                        bounds[1]?.lng,
+                        bounds[0]?.lng,
                 );
         useEffect(() => {
                 refetch();
-                console.log("data: ", data);
         }, [coordinate]);
 
         return (
