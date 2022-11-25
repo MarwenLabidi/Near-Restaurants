@@ -24,13 +24,12 @@ const fetchRestaurants = async ({ queryKey }) => {
         return data.data;
 };
 
-//TODO? look how to add params to the fetch function inside use query
 // create a custom hook to get the restaurats data
 const useRestaurantsData = (
         bl_latitude,
         tr_latitude,
         bl_longitude,
-        tr_longitude
+        tr_longitude,
 ) => {
         return useQuery(
                 [
@@ -42,23 +41,30 @@ const useRestaurantsData = (
                 ],
                 fetchRestaurants,
                 {
-                        // enabled: false,
+                        enabled: false,
                         onSuccess: (data) => {
-                                console.log(`success: ${data}`);
+                                console.log(`success on useRestaurantData: `);
                         },
                         onError: (error) => {
-                                console.log(`error: ${error}`);
+                                console.log(`error on useRestaurantData: }`);
                         },
-                        // select: (data) => {return data;},
+                        select: (data) => {
+				//filter the data to get the name and the latitude and longitude of the restaurants
+				const restaurants = data.map((restaurant) => {
+					const { name,location_string, latitude, longitude ,cuisine,rating} = restaurant;
+					return {
+						name,
+						location_string,
+						latitude,
+						longitude,
+						rating,
+						cuisine:(cuisine?.length>0)&&cuisine.map((cuisine)=>cuisine.name)
+					};
+				});
+				return restaurants;
+				}
                 }
         );
 };
 
 export default useRestaurantsData;
-//TODO? make the select function to return the data in the format I want
-/** result
- *
- * [{name,location_string,latitude,longitude,cuisine=[{name},{}],rating},{},{},{},{},{}]
- */
-
-//TODO?make make the fetch depend on the state of th coordinate byy pass courdiate as param in useQuery after id

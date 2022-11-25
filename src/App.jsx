@@ -26,16 +26,18 @@ function App() {
                 getTheCurrentLocation(setCoordinate, setBonds);
         }, []);
         
-        //---> get the restaurant data
+        //-> get the restaurant data
+        //TODO? use the bounds to get the data
         const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
                         11.847676,
                         12.838442,
                         109.095887,
-                        109.149359
+                        109.149359,
                 );
         useEffect(() => {
-                // console.log("data: ", data);
+                refetch();
+                console.log("data: ", data);
         }, [coordinate]);
 
         return (
