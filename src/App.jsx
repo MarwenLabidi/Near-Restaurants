@@ -34,10 +34,6 @@ function App() {
                         bounds[1]?.lng,
                         bounds[0]?.lng,
                 );
-        useEffect(() => {
-                refetch();
-        }, [coordinate]);
-
         return (
                 <>
                         <HEADER />
