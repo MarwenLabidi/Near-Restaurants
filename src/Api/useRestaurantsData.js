@@ -21,7 +21,7 @@ const fetchRestaurants = async ({ queryKey }) => {
                 );
         });
         const data = await response.json();
-        return data;
+        return data.data;
 };
 
 //TODO? look how to add params to the fetch function inside use query

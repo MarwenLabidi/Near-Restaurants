@@ -7,7 +7,7 @@ import useShowdetails from "./store/ShowCardDetailStore";
 import useCoordinateStore from "./store/coordinateStore";
 import { getTheCurrentLocation } from "./utils/utils";
 import useRestaurantsData from "./Api/useRestaurantsData";
-
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
         const { showdetails, toggleShowdetails } = useShowdetails((state) => ({
@@ -28,7 +28,7 @@ function App() {
         //TODO? useEffect to get the restaurant whatevent the cooridnate and boundsstate change
         //TODO? use react query to fetch the restaurant data : use costom hook and look at dev tool use select and on succes an on error
         //TODO? delete the useEffect and use the useQuery hook
-        const [isLoading, isError, isFetching, data, error, refetch] =
+        const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
                         11.847676,
                         12.838442,
@@ -36,7 +36,7 @@ function App() {
                         109.149359
                 );
         useEffect(() => {
-                // console.log(coordinate);
+                // console.log("data: ", data);
         }, [coordinate]);
 
         return (
