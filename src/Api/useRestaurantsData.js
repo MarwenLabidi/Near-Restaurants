@@ -41,7 +41,7 @@ const useRestaurantsData = (
                 ],
                 fetchRestaurants,
                 {
-                        enabled: false,
+                        // enabled: false,
                         onSuccess: (data) => {
                                 console.log(`success on useRestaurantData: `);
                         },
