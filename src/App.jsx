@@ -6,6 +6,12 @@ import "./App.css";
 import useShowdetails from "./store/ShowCardDetailStore";
 import useCoordinateStore from "./store/coordinateStore";
 import { getTheCurrentLocation } from "./utils/utils";
+import {
+        QueryClient,
+        QueryClientProvider,
+      } from '@tanstack/react-query';
+// Create a client
+const queryClient = new QueryClient();
 
 function App() {
         const { showdetails, toggleShowdetails } = useShowdetails((state) => ({
@@ -31,11 +37,11 @@ function App() {
         }, [coordinate]);
 
         return (
-                <>
+                <QueryClientProvider client={queryClient}>
                         <HEADER />
                         {showdetails && <DETAILS_CARD />}
                         <MAP />
-                </>
+                </QueryClientProvider>
         );
 }
 

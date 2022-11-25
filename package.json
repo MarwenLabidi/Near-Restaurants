@@ -9,6 +9,7 @@
                 "test-e2e": "cucumber-js --require cucumber.config.js --require tests/search.feature/**/**.js --require tests/stepDefinitions/**/**.js --format @cucumber/pretty-formatter"
         },
         "dependencies": {
+                "@tanstack/react-query": "^4.16.1",
                 "leaflet": "^1.9.2",
                 "react": "^18.2.0",
                 "react-dom": "^18.2.0",
