@@ -55,7 +55,10 @@ const useRestaurantsData = (
 };
 
 export default useRestaurantsData;
+//TODO? make the select function to return the data in the format I want
 /** result
  *
  * [{name,location_string,latitude,longitude,cuisine=[{name},{}],rating},{},{},{},{},{}]
  */
+
+//TODO?make make the fetch depend on the state of th coordinate byy pass courdiate as param in useQuery after id

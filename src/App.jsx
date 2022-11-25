@@ -25,9 +25,8 @@ function App() {
         useInsertionEffect(() => {
                 getTheCurrentLocation(setCoordinate, setBonds);
         }, []);
-        //TODO? useEffect to get the restaurant whatevent the cooridnate and boundsstate change
-        //TODO? use react query to fetch the restaurant data : use costom hook and look at dev tool use select and on succes an on error
-        //TODO? delete the useEffect and use the useQuery hook
+        
+        //---> get the restaurant data
         const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
                         11.847676,
