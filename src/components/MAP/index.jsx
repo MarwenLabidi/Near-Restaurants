@@ -22,7 +22,9 @@ let DefaultIcon = L.icon({
         // popupAnchor: [0, -56],
 });
 
-function MultipleMarkers({ arrCoordinates }) {
+//FIXME? delee arrCourdinates
+function MultipleMarkers({ arrCoordinates ,data }) {
+        //TODO? change arrCoordinates to data
         return arrCoordinates.current.map((coordinata, index) => {
                 return (
                         <Marker
@@ -79,6 +81,7 @@ const MAP = () => {
                 }));
         const [zoom, setZoom] = useState(13);
         const [center, setCenter] = useState([36.8065, 10.1815]);
+        //FIXME? delete arrCoordinates
         const arrCoordinates = useRef([
                 [36.8065, 10.1815],
                 [36.8185, 10.1815],
@@ -121,7 +124,9 @@ const MAP = () => {
                                         import.meta.env.VITE_MAP_key
                                 }`}
                         />
-                        <MultipleMarkers arrCoordinates={arrCoordinates} />
+                        //FIXME? delete MultipleMarkers
+                        
+                        <MultipleMarkers data={data}  arrCoordinates={arrCoordinates} />
                 </MapContainer>
         );
 };

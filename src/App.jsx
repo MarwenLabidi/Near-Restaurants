@@ -16,6 +16,7 @@ function App() {
                 setCoordinate: state.setCoordinate,
                 setBonds: state.setBonds,
         }));
+        //TODO? create ref for the restaurant that you picke when you click on the button detail in the detail card
         // set the current location to the state
         useInsertionEffect(() => {
                 getTheCurrentLocation(setCoordinate, setBonds);

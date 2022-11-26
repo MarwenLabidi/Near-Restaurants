@@ -17,6 +17,7 @@ const POPUP_CARD = () => {
                                         <button className={directionButton}>
                                                 direction
                                         </button>
+                                        //TODO? create onlick event and pass the restaurant that you pick to the the picked ref restaurant in app compnents 
                                         <button className={showDetailsButton}>
                                                 show details
                                         </button>
