@@ -13,6 +13,7 @@ import icon from "/images/icon-location.svg";
 import POPUP_CARD from "../POPUP_CARD";
 import useCoordinateStore from "../../store/coordinateStore";
 import { useMap } from "react-leaflet";
+import useRestaurantsData from "../../Api/useRestaurantsData";
 
 let DefaultIcon = L.icon({
         iconUrl: icon,
@@ -21,8 +22,7 @@ let DefaultIcon = L.icon({
         // popupAnchor: [0, -56],
 });
 
-
-function MultipleMarkers({arrCoordinates}) {
+function MultipleMarkers({ arrCoordinates }) {
         return arrCoordinates.current.map((coordinata, index) => {
                 return (
                         <Marker
@@ -84,12 +84,16 @@ const MAP = () => {
                 [36.8185, 10.1815],
                 [36.8065, 10.1915],
         ]);
+        //-> get the restaurant data
+        const { isLoading, isError, isFetching, data, error, refetch } =
+                useRestaurantsData(
+                        bounds[1]?.lat,
+                        bounds[0]?.lat,
+                        bounds[1]?.lng,
+                        bounds[0]?.lng
+                );
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
-                (function getAllRestaurantCoordinates(arrCoordinates) {
-                        //TODO? get all restaurants coordinates from the cache and set them to arrCoordinates
-                       // get the cache from the store
-                })(arrCoordinates);
         }, [coordinate]);
 
         return (

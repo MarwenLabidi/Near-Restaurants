@@ -29,7 +29,7 @@ const useRestaurantsData = (
         bl_latitude,
         tr_latitude,
         bl_longitude,
-        tr_longitude,
+        tr_longitude
 ) => {
         return useQuery(
                 [
@@ -41,28 +41,65 @@ const useRestaurantsData = (
                 ],
                 fetchRestaurants,
                 {
-                        enabled: false,
+                        // enabled: false,
                         onSuccess: (data) => {
                                 console.log(`success on useRestaurantData: `);
+                                const restaurants = data.map((restaurant) => {
+                                        const {
+                                                name,
+                                                location_string,
+                                                latitude,
+                                                longitude,
+                                                cuisine,
+                                                rating,
+                                        } = restaurant;
+                                        return {
+                                                name,
+                                                location_string,
+                                                latitude,
+                                                longitude,
+                                                rating,
+                                                cuisine:
+                                                        cuisine?.length > 0 &&
+                                                        cuisine.map(
+                                                                (cuisine) =>
+                                                                        cuisine.name
+                                                        ),
+                                        };
+                                });
+                                console.log("restaurants: ", restaurants);
+                                
                         },
                         onError: (error) => {
                                 console.log(`error on useRestaurantData: }`);
                         },
                         select: (data) => {
-				//filter the data to get the name and the latitude and longitude of the restaurants
-				const restaurants = data.map((restaurant) => {
-					const { name,location_string, latitude, longitude ,cuisine,rating} = restaurant;
-					return {
-						name,
-						location_string,
-						latitude,
-						longitude,
-						rating,
-						cuisine:(cuisine?.length>0)&&cuisine.map((cuisine)=>cuisine.name)
-					};
-				});
-				return restaurants;
-				}
+                                //filter the data to get the name and the latitude and longitude of the restaurants
+                                const restaurants = data.map((restaurant) => {
+                                        const {
+                                                name,
+                                                location_string,
+                                                latitude,
+                                                longitude,
+                                                cuisine,
+                                                rating,
+                                        } = restaurant;
+                                        return {
+                                                name,
+                                                location_string,
+                                                latitude,
+                                                longitude,
+                                                rating,
+                                                cuisine:
+                                                        cuisine?.length > 0 &&
+                                                        cuisine.map(
+                                                                (cuisine) =>
+                                                                        cuisine.name
+                                                        ),
+                                        };
+                                });
+                                return restaurants;
+                        },
                 }
         );
 };
