@@ -22,17 +22,22 @@ let DefaultIcon = L.icon({
         // popupAnchor: [0, -56],
 });
 
-//FIXME? delee arrCourdinates
-function MultipleMarkers({ arrCoordinates ,data }) {
-        //TODO? change arrCoordinates to data
-        return arrCoordinates.current.map((coordinata, index) => {
+
+
+function MultipleMarkers({ data }) {
+        if(!data){return}
+        return data?.map((restaurant, index) => {
+                if(!restaurant.latitude){return}
                 return (
                         <Marker
                                 key={index}
-                                position={coordinata}
+                                position={[
+                                        restaurant.latitude,
+                                        restaurant.longitude,
+                                ]}
                                 icon={DefaultIcon}>
                                 <Popup>
-                                        <POPUP_CARD />
+                                        <POPUP_CARD data={data}/>
                                 </Popup>
                         </Marker>
                 );
@@ -81,12 +86,6 @@ const MAP = () => {
                 }));
         const [zoom, setZoom] = useState(13);
         const [center, setCenter] = useState([36.8065, 10.1815]);
-        //FIXME? delete arrCoordinates
-        const arrCoordinates = useRef([
-                [36.8065, 10.1815],
-                [36.8185, 10.1815],
-                [36.8065, 10.1915],
-        ]);
         //-> get the restaurant data
         const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
@@ -109,7 +108,6 @@ const MAP = () => {
                                 zoom={zoom}
                                 setBonds={setBonds}
                         />
-
                         <MapClick
                                 setCoordinate={setCoordinate}
                                 setBonds={setBonds}
@@ -124,9 +122,9 @@ const MAP = () => {
                                         import.meta.env.VITE_MAP_key
                                 }`}
                         />
-                        //FIXME? delete MultipleMarkers
-                        
-                        <MultipleMarkers data={data}  arrCoordinates={arrCoordinates} />
+                        <MultipleMarkers
+                                data={data}
+                        />
                 </MapContainer>
         );
 };

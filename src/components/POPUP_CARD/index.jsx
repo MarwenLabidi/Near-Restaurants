@@ -6,7 +6,8 @@ import {
         directionButton,
 } from "./index.module.css";
 
-const POPUP_CARD = () => {
+const POPUP_CARD = ({data}) => {
+        //TODO? pass the data to the tags
         return (
                 <>
                         <section className={popupCardSection}>
@@ -28,3 +29,11 @@ const POPUP_CARD = () => {
 };
 
 export default POPUP_CARD;
+
+//FIXME? delee those
+// cuisine
+// latitude
+// location_string
+// longitude
+// name
+// rating
