@@ -8,6 +8,7 @@ import {
 
 const POPUP_CARD = ({data}) => {
         if(!data){return}
+        //FIXME? why data is undefiend
         console.log('data: ', data.name);
         //TODO? create onlick event and pass the restaurant that you pick to the the picked ref restaurant in app compnents 
         return (
