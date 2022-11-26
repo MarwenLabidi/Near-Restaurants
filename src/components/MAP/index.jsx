@@ -79,7 +79,6 @@ const MAP = () => {
                 }));
         const [zoom, setZoom] = useState(13);
         const [center, setCenter] = useState([36.8065, 10.1815]);
-        //TODO?                       
         const arrCoordinates = useRef([
                 [36.8065, 10.1815],
                 [36.8185, 10.1815],
@@ -87,6 +86,10 @@ const MAP = () => {
         ]);
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
+                (function getAllRestaurantCoordinates(arrCoordinates) {
+                        //TODO? get all restaurants coordinates from the cache and set them to arrCoordinates
+                       // get the cache from the store
+                })(arrCoordinates);
         }, [coordinate]);
 
         return (
