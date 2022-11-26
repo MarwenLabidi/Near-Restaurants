@@ -51,6 +51,7 @@ const useRestaurantsData = (
                         },
                         select: (data) => {
                                 //filter the data to get the name and the latitude and longitude of the restaurants
+                                if(!data){return}
                                 const restaurants = data.map((restaurant) => {
                                         const {
                                                 name,
