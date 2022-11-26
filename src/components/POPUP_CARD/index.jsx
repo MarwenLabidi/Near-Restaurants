@@ -7,18 +7,19 @@ import {
 } from "./index.module.css";
 
 const POPUP_CARD = ({data}) => {
-        //TODO? pass the data to the tags
+        if(!data){return}
+        console.log('data: ', data.name);
+        //TODO? create onlick event and pass the restaurant that you pick to the the picked ref restaurant in app compnents 
         return (
                 <>
                         <section className={popupCardSection}>
                                 <div>
                                         <h2 className={restaurantName}>
-                                                restaurant Name
+                                               name: {data.name}
                                         </h2>
                                         <button className={directionButton}>
                                                 direction
                                         </button>
-                                        //TODO? create onlick event and pass the restaurant that you pick to the the picked ref restaurant in app compnents 
                                         <button className={showDetailsButton}>
                                                 show details
                                         </button>
