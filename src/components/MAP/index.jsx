@@ -37,7 +37,7 @@ function MultipleMarkers({ data }) {
                                 ]}
                                 icon={DefaultIcon}>
                                 <Popup>
-                                        <POPUP_CARD data={data}/>
+                                        <POPUP_CARD name={restaurant.name} location_string={restaurant.location_string} cuisine={restaurant.cuisine} rating={rating}/>
                                 </Popup>
                         </Marker>
                 );

@@ -16,7 +16,7 @@ import {
         cardRatingTitle,
         cardRatingContent,
 } from "./index.module.css";
-
+//TODO? get the data from ref restaurat the you picked and  show them here 
 const DETAILS_CARD = () => {
         return (
                 <section className={card}>
