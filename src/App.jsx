@@ -1,4 +1,4 @@
-import { useState, useEffect, useInsertionEffect } from "react";
+import { useState,  useInsertionEffect } from "react";
 import DETAILS_CARD from "./components/DETAILS_CARD";
 import HEADER from "./components/HEADER";
 import MAP from "./components/MAP";
@@ -16,7 +16,7 @@ function App() {
                 setCoordinate: state.setCoordinate,
                 setBonds: state.setBonds,
         }));
-        //TODO? create ref for the restaurant that you picke when you click on the button detail in the detail card
+        const [chosenRestaurant,setChosenRestaurant] = useState(null);
         // set the current location to the state
         useInsertionEffect(() => {
                 getTheCurrentLocation(setCoordinate, setBonds);
@@ -25,8 +25,8 @@ function App() {
         return (
                 <>
                         <HEADER />
-                        {showdetails && <DETAILS_CARD />}
-                        <MAP />
+                        {showdetails && <DETAILS_CARD chosenRestaurant={chosenRestaurant} />}
+                        <MAP setChosenRestaurant={setChosenRestaurant} />
                 </>
         );
 }

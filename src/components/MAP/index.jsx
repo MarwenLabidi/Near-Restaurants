@@ -23,7 +23,7 @@ let DefaultIcon = L.icon({
         // popupAnchor: [0, -56],
 });
 
-function MultipleMarkers({ data }) {
+function MultipleMarkers({ data,setChosenRestaurant }) {
         if (!data) {
                 return;
         }
@@ -47,6 +47,7 @@ function MultipleMarkers({ data }) {
                                                 }
                                                 cuisine={restaurant.cuisine}
                                                 rating={restaurant.rating}
+                                                setChosenRestaurant={setChosenRestaurant}
                                         />
                                 </Popup>
                         </Marker>
@@ -86,7 +87,7 @@ function ChangeView({ center, zoom, setBonds }) {
         return null;
 }
 
-const MAP = () => {
+const MAP = ({setChosenRestaurant}) => {
         const { coordinate, bounds, setCoordinate, setBonds } =
                 useCoordinateStore((state) => ({
                         coordinate: state.coordinate,
@@ -137,7 +138,7 @@ const MAP = () => {
                                         import.meta.env.VITE_MAP_key
                                 }`}
                         />
-                        <MultipleMarkers data={data} />
+                        <MultipleMarkers setChosenRestaurant={setChosenRestaurant} data={data} />
                 </MapContainer>
         );
 };

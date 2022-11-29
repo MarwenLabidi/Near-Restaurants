@@ -7,7 +7,7 @@ const showdetailsStore = (set) => ({
         showdetails: false,
         toggleShowdetails: () => {
                 set((state) => ({
-                        showdetails: !state.showdetails,
+                        showdetails: true,
                 }));
         },
 });

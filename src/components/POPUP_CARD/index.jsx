@@ -1,4 +1,5 @@
 import React from "react";
+import useShowdetails from "../../store/ShowCardDetailStore";
 import {
         popupCardSection,
         restaurantName,
@@ -6,9 +7,16 @@ import {
         directionButton,
 } from "./index.module.css";
 
-const POPUP_CARD = ({ name,location_string,cuisine,rating }) => {
-        //TODO? pass all the data of props to the ref in the app components : create a ref there of the restaurants that you pick
-        //TODO? change the state of show details :// chang it again when you focus in the inpute
+const POPUP_CARD = ({
+        name,
+        location_string,
+        cuisine,
+        rating,
+        setChosenRestaurant,
+}) => {
+        const { toggleShowdetails } = useShowdetails((state) => ({
+                toggleShowdetails: state.toggleShowdetails,
+        }));
         return (
                 <>
                         <section className={popupCardSection}>
@@ -19,7 +27,20 @@ const POPUP_CARD = ({ name,location_string,cuisine,rating }) => {
                                         <button className={directionButton}>
                                                 direction
                                         </button>
-                                        <button className={showDetailsButton}>
+                                        <button
+                                                className={showDetailsButton}
+                                                onClick={() => {
+                                                        console.log(
+                                                                "you clicked on the button"
+                                                        );
+                                                        setChosenRestaurant({
+                                                                name,
+                                                                location_string,
+                                                                cuisine,
+                                                                rating,
+                                                        });
+                                                        toggleShowdetails();
+                                                }}>
                                                 show details
                                         </button>
                                 </div>

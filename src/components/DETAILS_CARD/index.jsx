@@ -16,21 +16,24 @@ import {
         cardRatingTitle,
         cardRatingContent,
 } from "./index.module.css";
-//TODO? get the data from ref restaurat the you picked and  show them here 
-const DETAILS_CARD = () => {
+const DETAILS_CARD = ({ chosenRestaurant }) => {
         return (
                 <section className={card}>
                         <section className={cardSectionOne}>
                                 <div className={cardName}>
                                         <h5 className={cardNameTitle}>Name</h5>
-                                        <h3 className={cardNameContent}>lablebi</h3>
+                                        <h3 className={cardNameContent}>
+                                                {chosenRestaurant.name}
+                                        </h3>
                                 </div>
                                 <div className={cardLocation}>
                                         <h5 className={cardLocationTitle}>
                                                 Location
                                         </h5>
                                         <h3 className={cardLocationContent}>
-                                                krib
+                                                {
+                                                        chosenRestaurant.location_string
+                                                }
                                         </h3>
                                 </div>
                         </section>
@@ -40,7 +43,8 @@ const DETAILS_CARD = () => {
                                                 cuisine
                                         </h5>
                                         <h3 className={cardCuisineContent}>
-                                                Tunis
+                                               {chosenRestaurant.cuisine[0]}
+                                                
                                         </h3>
                                 </div>
                                 <div className={cardRating}>
@@ -48,7 +52,9 @@ const DETAILS_CARD = () => {
                                                 Rating
                                         </h5>
                                         <h3 className={cardRatingContent}>
-                                                five 
+                                                {chosenRestaurant.rating
+                                                        ? chosenRestaurant.rating
+                                                        : "no rating"}
                                         </h3>
                                 </div>
                         </section>
@@ -57,3 +63,7 @@ const DETAILS_CARD = () => {
 };
 
 export default DETAILS_CARD;
+
+
+//FIXME? figure out  soluton to show all details if the details is longer than the card
+//FIXME? when input is focusedhe detail card desepair
