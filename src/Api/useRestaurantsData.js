@@ -85,4 +85,3 @@ const useRestaurantsData = (
 
 export default useRestaurantsData;
 
-//FIXME? add debounce function hete to the react query to prevent too many requests

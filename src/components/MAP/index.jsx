@@ -14,6 +14,7 @@ import POPUP_CARD from "../POPUP_CARD";
 import useCoordinateStore from "../../store/coordinateStore";
 import { useMap } from "react-leaflet";
 import useRestaurantsData from "../../Api/useRestaurantsData";
+import { useDebounce } from "../../hooks/useDebounce";
 
 let DefaultIcon = L.icon({
         iconUrl: icon,
@@ -22,12 +23,14 @@ let DefaultIcon = L.icon({
         // popupAnchor: [0, -56],
 });
 
-
-
 function MultipleMarkers({ data }) {
-        if(!data){return}
+        if (!data) {
+                return;
+        }
         return data?.map((restaurant, index) => {
-                if(!restaurant.latitude){return}
+                if (!restaurant.latitude) {
+                        return;
+                }
                 return (
                         <Marker
                                 key={index}
@@ -37,7 +40,14 @@ function MultipleMarkers({ data }) {
                                 ]}
                                 icon={DefaultIcon}>
                                 <Popup>
-                                        <POPUP_CARD name={restaurant.name} location_string={restaurant.location_string} cuisine={restaurant.cuisine} rating={restaurant.rating}/>
+                                        <POPUP_CARD
+                                                name={restaurant.name}
+                                                location_string={
+                                                        restaurant.location_string
+                                                }
+                                                cuisine={restaurant.cuisine}
+                                                rating={restaurant.rating}
+                                        />
                                 </Popup>
                         </Marker>
                 );
@@ -86,13 +96,18 @@ const MAP = () => {
                 }));
         const [zoom, setZoom] = useState(13);
         const [center, setCenter] = useState([36.8065, 10.1815]);
+        const debouncedSearchQueryTop = useDebounce(bounds[1]?.lat, 2000);
+        const debouncedSearchQueryLeft = useDebounce(bounds[0]?.lat, 2000);
+        const debouncedSearchQueryRight = useDebounce(bounds[1]?.lng, 2000);
+        const debouncedSearchQueryBottom = useDebounce(bounds[0]?.lng, 2000);
+
         //-> get the restaurant data
         const { isLoading, isError, isFetching, data, error, refetch } =
                 useRestaurantsData(
-                        bounds[1]?.lat,
-                        bounds[0]?.lat,
-                        bounds[1]?.lng,
-                        bounds[0]?.lng
+                        debouncedSearchQueryTop,
+                        debouncedSearchQueryLeft,
+                        debouncedSearchQueryRight,
+                        debouncedSearchQueryBottom
                 );
         useEffect(() => {
                 setCenter([coordinate.lg, coordinate.wg]);
@@ -122,9 +137,7 @@ const MAP = () => {
                                         import.meta.env.VITE_MAP_key
                                 }`}
                         />
-                        <MultipleMarkers
-                                data={data}
-                        />
+                        <MultipleMarkers data={data} />
                 </MapContainer>
         );
 };
