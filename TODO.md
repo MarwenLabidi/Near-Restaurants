@@ -7,7 +7,6 @@ in the map and it will show on the card detail the top rating restaurant and whe
 2- when you brows the map it will show you restaurant too
 
 -[] create the direction feature
--[] add rating starts from material ui
 -[] run accesibility test and work on accesisibility
 -[] make keybord work on autocomplete section and navigaate to her
 -[] make it progressive web app

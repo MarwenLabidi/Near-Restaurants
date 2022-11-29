@@ -10,6 +10,11 @@ const showdetailsStore = (set) => ({
                         showdetails: true,
                 }));
         },
+        hideShowdetails: () => {
+                set((state) => ({
+                        showdetails: false,
+                }));
+        },
 });
 
 const useShowdetails = create(

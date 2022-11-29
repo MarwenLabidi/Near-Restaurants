@@ -13,6 +13,7 @@ import {
 } from "./index.module.css";
 import usePlaceStore from "../../store/placeStore";
 import useCoordinateStore from "../../store/coordinateStore";
+import useShowdetails from "../../store/ShowCardDetailStore";
 
 const HEADER = () => {
         const { register } = useForm();
@@ -24,6 +25,9 @@ const HEADER = () => {
         const { setCoordinate, setBonds } = useCoordinateStore((state) => ({
                 setCoordinate: state.setCoordinate,
                 setBonds: state.setBonds,
+        }));
+        const { hideShowdetails } = useShowdetails((state) => ({
+                hideShowdetails: state.hideShowdetails,
         }));
         useEffect(() => {
                 addPlace([]);
@@ -40,8 +44,12 @@ const HEADER = () => {
                                         placeholder='Search by City or Town'
                                         onInput={async (e) => {
                                                 let value =
-                                                e.target.value.toLowerCase();
+                                                        e.target.value.toLowerCase();
                                                 handelDebounce(value);
+                                        }}
+                                        onFocus={() => {
+                                                // console.log(`focused`);
+                                                hideShowdetails();
                                         }}
                                 />
                                 <button
@@ -50,7 +58,9 @@ const HEADER = () => {
                                                 if (
                                                         !placeInTheInputRef.current
                                                 ) {
-                                                        alert(`this please doesn't exst please pick one from the suggestions`);
+                                                        alert(
+                                                                `this please doesn't exst please pick one from the suggestions`
+                                                        );
                                                         return;
                                                 }
                                                 //set the coordinate to the state

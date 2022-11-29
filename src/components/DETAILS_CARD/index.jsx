@@ -65,5 +65,3 @@ const DETAILS_CARD = ({ chosenRestaurant }) => {
 export default DETAILS_CARD;
 
 
-//FIXME? figure out  soluton to show all details if the details is longer than the card
-//FIXME? when input is focusedhe detail card desepair
