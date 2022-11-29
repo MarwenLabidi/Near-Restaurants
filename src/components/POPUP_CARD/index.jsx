@@ -24,9 +24,6 @@ const POPUP_CARD = ({
                                         <h2 className={restaurantName}>
                                                 {name}
                                         </h2>
-                                        <button className={directionButton}>
-                                                direction
-                                        </button>
                                         <button
                                                 className={showDetailsButton}
                                                 onClick={() => {
