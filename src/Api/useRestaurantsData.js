@@ -44,10 +44,12 @@ const useRestaurantsData = (
                         // enabled: false,
                         onSuccess: (data) => {
                                 console.log(`success on useRestaurantData: `);
+                                console.log('data: ', data);
 
                         },
                         onError: (error) => {
                                 console.log(`error on useRestaurantData: }`);
+                                console.log('error: ', error);
                         },
                         select: (data) => {
                                 //filter the data to get the name and the latitude and longitude of the restaurants
