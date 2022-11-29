@@ -10,7 +10,7 @@ const AUTOCOMPLETE = ({ placeInTheInputRef }) => {
         }));
 
         return (
-                <div className={autoComplete} role='list' >
+                <div className={autoComplete} role='listitem'  >
                         {places.map((place, index) =>
                                 //stop if its more than 5
                                 index > 4 ? null : (

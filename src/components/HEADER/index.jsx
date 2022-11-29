@@ -53,6 +53,9 @@ const HEADER = () => {
                                         }}
                                 />
                                 <button
+                                        role={"button"}
+                                        aria-label={"submit button"}
+                                        aria-labelledby={"submit button"}
                                         className={buttonSubmit}
                                         onClick={(e) => {
                                                 if (
