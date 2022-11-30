@@ -8,7 +8,7 @@ in the map and it will show on the card detail the top rating restaurant and whe
 
 -[x] create the direction feature
 -[x] run accesibility test and work on accesisibility
--[] run tdd testing and modif it
+-[x] run tdd testing and modif it
 -[x] make keybord work on autocomplete section and navigaate to her
 -[] make it progressive web app
 -[] deploy it 
