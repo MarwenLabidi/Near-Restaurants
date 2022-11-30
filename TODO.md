@@ -10,6 +10,6 @@ in the map and it will show on the card detail the top rating restaurant and whe
 -[x] run accesibility test and work on accesisibility
 -[x] run tdd testing and modif it
 -[x] make keybord work on autocomplete section and navigaate to her
--[] make it progressive web app
--[] deploy it 
--[] make the readme like the past app
+-[x] make it progressive web app
+-[x] deploy it 
+-[x] make the readme like the past app
