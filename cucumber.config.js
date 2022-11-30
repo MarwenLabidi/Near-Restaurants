@@ -16,6 +16,10 @@ BeforeAll(async function () {
         global.browser = await chromium.launch({
                 headless: false,
                 slowMo: 1000,
+                // allow location permission
+                permissions: ["geolocation"],
+                // add geolocation
+                geolocation: { longitude: 12.492507, latitude: 41.889938 },
         });
 });
 

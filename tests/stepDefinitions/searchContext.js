@@ -17,27 +17,23 @@ Given("that I am on the home page", async function () {
         // Write code here that turns the phrase above into concrete actions
         // navigate to the app
         await page.goto(url);
-        // allow location with playwrite
-        // await page.context().overridePermissions(url, ["geolocation"]);
-        // wait for the homepage to load
-        // await page.waitForSelector(homepageElement);
-
-        // locate the element in the webUI
         const locator = await page.locator(homepageElement);
         // assert that it's visible
         await expect(locator).toBeVisible();
 });
 
 When("I enter the name of the restaurant in the search bar", async function () {
-        // Write code here that turns the phrase above into concrete actions
-        await page.fill(searchInput, city);
-        // click the button
-        // await page.click(searchButton);
+        await page.getByPlaceholder("Search by City or Town").click();
+        await page.getByPlaceholder("Search by City or Town").fill("tuns");
 });
 
 Then("I should see the restaurant that I searched for", async function () {
-        // locate the element in the webUI
-        const locator = await page.locator(autocompleteList);
-        // assert that it's visible
-        await expect(locator).toBeVisible();
+        await page
+                .getByText(
+                        "The Three Tuns, Market Square, Uxbridge, London, Greater London, England, UB8 1J"
+                )
+                .click();
+        await page.getByRole("button", { name: "submit button" }).click();
+        await page.locator(".leaflet-pane > img:nth-child(2)").click();
+        await page.getByRole("button", { name: "show details" }).click();
 });
